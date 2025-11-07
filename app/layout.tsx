@@ -1,11 +1,21 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Manrope, Inter } from "next/font/google"
+import { Inter, Poppins } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-sans" })
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans-alt" })
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-sans",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"]
+})
+const poppins = Poppins({ 
+  subsets: ["latin"], 
+  variable: "--font-sans-alt",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"]
+})
 
 export const metadata: Metadata = {
   title: "Sudan House of Representatives",
@@ -38,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
